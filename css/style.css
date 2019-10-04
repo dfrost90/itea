@@ -1,0 +1,30 @@
+.header {
+  position: relative;
+}
+
+.header__search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  max-width: 100%;
+}
+
+.sort-by {
+  padding: 20px 20px 0;
+}
+
+.tile {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.tile__title {
+  margin-top: 10px;
+}
+
+.filters {
+  padding-top: 20px;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>itea project</title>
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4 col-md-2">
+            <div class="header__logo">
+              <img src="images/logo.png" alt="logo" with="250" height="125">
+            </div>
+          </div>
+          <div class="col-8 col-md-10">
+            <div class="header__search">
+              <div class="search">
+                <form class="search">
+                  <div class="input-group">
+                    <input type="search" class="form-control" placeholder="Search" name="search" id="header-search">
+                    <div class="input-group-append">
+                      <button type="button" id="search-button" class="btn btn-secondary"><span>Search</span></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-2">
+          <div class="list-group pt-3">
+            <a class="list-group-item list-group-item-action" href="#" role="button">Action</a>
+            <a class="list-group-item list-group-item-action" href="#" role="button">Comedy</a>
+            <a class="list-group-item list-group-item-action" href="#" role="button">Thriller</a>
+            <a class="list-group-item list-group-item-action" href="#" role="button">Drama</a>
+            <a class="list-group-item list-group-item-action" href="#" role="button">Other</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-10">
+          <div class="container">
+            <div class="movie pt-3">
+              <div class="row">
+                <div class="col-12 col-md-3">
+                  <div class="movie__img">
+                    <img src="images/movies/joker.jpg" class="img-thumbnail" alt="Joker">
+                  </div>
+                </div>
+                <div class="col-12 col-md-9">
+                  <div class="movie__content">
+                    <h1 class="movie__title">Joker</h1>
+                    <div class="movie__row"><span class="movie__row-title text-muted">Director: </span><span class="movie__row-text">Todd Phillips</span></div>
+                    <div class="movie__row"><span class="movie__row-title text-muted">Writers: </span><span class="movie__row-text">Todd Phillips, </span><span class="movie__row-text">Scott Silver</span></div>
+                    <div class="movie__row"><span class="movie__row-title text-muted">Stars: </span><span class="movie__row-text">Joaquin Phoenix, </span><span class="movie__row-text">Robert De Niro, </span><span class="movie__row-text">Zazie Beetz</span></div>
+                    <p class="movie__info mt-4 mb-4">Joker centers around an origin of the iconic arch nemesis and is an original, standalone story not seen before on the big screen. Todd Phillips' exploration of Arthur Fleck (Joaquin Phoenix), a man disregarded by society, is not only a gritty character study, but also a broader cautionary tale. Written by Warner Bros.</p>
+                    <button type="button" id="search-button" class="btn btn-primary btn-lg pl-4 pr-4"><span>Play</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
