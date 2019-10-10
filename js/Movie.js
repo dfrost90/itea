@@ -1,23 +1,3 @@
-function Movie(options) {
-    if (options) {
-        this.title = options.title || 'default';
-        this.genre = options.genre || 'other';
-        this.rating = options.rating || 0;
-        this.year = options.year || 'not set';
-        this.director = options.director || 'noname';
-        this.cast = options.cast || 'John Doe, Jane Doe';
-        this.info = options.info || 'some text';
-        this.views = options.views || 0;
-
-        this.setViews = function () {
-            this.views++;
-        }
-        this.setRating = function (rating, newRating) {
-            this.rating = (rating + newRating) / 2;
-        }
-    }
-}
-
 var movie1Options = {
     title: 'El Camino: A Breaking Bad Movie',
     rating : 9.8,
@@ -38,7 +18,86 @@ var movie2Options = {
     info: 'Rambo must confront his past and unearth his ruthless combat skills to exact revenge in a final mission.'
 }
 
+var tvShow1Options = {
+    title: 'Tv Show',
+    rating: 4,
+    year: 2010-2015,
+    genre: 'Comedy',
+    numberOfSeasons: 5,
+    statusOnAir: false
+}
+
+function Movie(options) {
+    if (options) {
+        this.title = options.title || 'default';
+        this.genre = options.genre || 'other';
+        this.rating = options.rating || 0;
+        this.year = options.year || 'not set';
+        this.director = options.director || 'noname';
+        this.cast = options.cast || 'John Doe, Jane Doe';
+        this.info = options.info || 'some text';
+        this.views = options.views || 0;
+    }
+}
+
+function TvShow(options) {
+    Movie.apply(this, arguments);
+
+    if (options) {
+        this.numberOfSeasons = options.numberOfSeasons || '1';
+        this.statusOnAir = options.statusOnAir || false;
+    }
+}
+
+Movie.prototype = {
+    getTitle: function () {
+        return this.title;
+    },
+    setScore: function () {
+        console.log('set score function for ' + this.title);
+    },
+    playVideo: function() {
+        console.log('play function for ' + this.title);
+    },
+    render: function () {
+        console.log('render function for ' + this.title);
+    }
+}
+
+TvShow.prototype = Object.create(Movie.prototype);
+TvShow.prototype.constructor = Movie;
+
+TvShow.prototype.isOnAir = function () {
+    return this.statusOnAir ? 'yes' : 'cancelled';
+}
+
+TvShow.prototype.playListOfEpisodes = function () {
+    console.log('play list of episodes');
+}
+
+TvShow.prototype.setSeasonScore = function () {
+    console.log('rate season');
+}
+
+TvShow.prototype.render = function () {
+    console.log('render tvshow');
+}
+
 var movie1 = new Movie(movie1Options);
 var movie2 = new Movie(movie2Options);
 
-console.log({'movie1': movie1, 'movie2': movie2});
+var tvshow1 = new TvShow(tvShow1Options);
+
+// movie1.setScore();
+// movie1.playVideo();
+// movie1.render();
+
+console.log(tvshow1.getTitle());
+
+movie2.playVideo();
+
+tvshow1.playListOfEpisodes();
+
+tvshow1.setScore();
+
+console.log(tvshow1.isOnAir());

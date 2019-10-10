@@ -12,19 +12,19 @@
     <header class="header">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-4 col-md-2">
+          <div class="col-4">
             <div class="header__logo">
-              <img src="images/logo.png" alt="logo" with="250" height="125">
+              <img src="images/logo.png" alt="logo" with="234" height="80">
             </div>
           </div>
-          <div class="col-8 col-md-10">
+          <div class="col-8">
             <div class="header__search">
               <div class="search">
                 <form class="search">
                   <div class="input-group">
                     <input type="search" class="form-control" placeholder="Search" name="search" id="header-search">
                     <div class="input-group-append">
-                      <button type="button" id="search-button" class="btn btn-secondary"><span>Search</span></button>
+                      <button type="button" id="search-button" class="btn btn-casual"><span>Search</span></button>
                     </div>
                   </div>
                 </form>
@@ -34,20 +34,20 @@
         </div>
       </div>
     </header>
-    <div class="container-fluid">
+    <div class="main container-fluid">
       <div class="row">
-        <div class="col-12 col-md-2">
-          <div class="list-group pt-3">
+        <div class="filters col-12 col-md-2">
+          <div class="list-group">
             <a class="list-group-item list-group-item-action" href="#" role="button">Action</a>
             <a class="list-group-item list-group-item-action" href="#" role="button">Comedy</a>
-            <a class="list-group-item list-group-item-action" href="#" role="button">Thriller</a>
+            <a class="list-group-item list-group-item-action active" href="#" role="button">Thriller</a>
             <a class="list-group-item list-group-item-action" href="#" role="button">Drama</a>
             <a class="list-group-item list-group-item-action" href="#" role="button">Other</a>
           </div>
         </div>
         <div class="col-12 col-md-10">
           <div class="container">
-            <div class="movie pt-3">
+            <div class="movie">
               <div class="row">
                 <div class="col-12 col-md-3">
                   <div class="movie__img">
@@ -57,14 +57,14 @@
                 <div class="col-12 col-md-9">
                   <div class="movie__content">
                     <h1 class="movie__title">Joker</h1>
-                    <div class="movie__row"><span class="movie__row-title text-muted">Director: </span><span class="movie__row-text">Todd Phillips</span></div>
-                    <div class="movie__row"><span class="movie__row-title text-muted">Writers: </span><span class="movie__row-text">Todd Phillips, </span><span class="movie__row-text">Scott Silver</span></div>
-                    <div class="movie__row"><span class="movie__row-title text-muted">Stars: </span><span class="movie__row-text">Joaquin Phoenix, </span><span class="movie__row-text">Robert De Niro, </span><span class="movie__row-text">Zazie Beetz</span></div>
-                    <div class="movie__row"><span class="movie__row-title text-muted">Duration: </span><span class="movie__row-text">--</span></div>
-                    <div class="movie__row"><span class="movie__row-title text-muted">Rating: </span><span class="movie__row-text">R</span></div>
+                    <div class="movie__row"><span class="movie__row-title">Director: </span><span class="movie__row-text">Todd Phillips</span></div>
+                    <div class="movie__row"><span class="movie__row-title">Writers: </span><span class="movie__row-text">Todd Phillips, </span><span class="movie__row-text">Scott Silver</span></div>
+                    <div class="movie__row"><span class="movie__row-title">Stars: </span><span class="movie__row-text">Joaquin Phoenix, </span><span class="movie__row-text">Robert De Niro, </span><span class="movie__row-text">Zazie Beetz</span></div>
+                    <div class="movie__row"><span class="movie__row-title">Duration: </span><span class="movie__row-text">--</span></div>
+                    <div class="movie__row"><span class="movie__row-title">Rating: </span><span class="movie__row-text">R</span></div>
                     <p class="movie__info mt-4 mb-4">Joker centers around an origin of the iconic arch nemesis and is an original, standalone story not seen before on the big screen. Todd Phillips' exploration of Arthur Fleck (Joaquin Phoenix), a man disregarded by society, is not only a gritty character study, but also a broader cautionary tale. Written by Warner Bros.</p>
-                    <button type="button" id="play-button" class="btn btn-primary btn-lg pl-4 pr-4"><span>Play</span></button>
-                    <a href="https://www.youtube.com/watch?v=t433PEQGErc" target="_blank" role="button" id="trailer-button" class="btn btn-secondary btn-lg pl-4 pr-4"><span>Watch trailer</span></a>
+                    <button type="button" id="play-button" class="btn btn-promo btn-lg pl-4 pr-4"><span>Play</span></button>
+                    <a href="https://www.youtube.com/watch?v=t433PEQGErc" target="_blank" role="button" id="trailer-button" class="btn btn-casual btn-lg pl-4 pr-4 movie__trailer-button"><span>Watch trailer</span></a>
                   </div>
                 </div>
               </div>
@@ -73,7 +73,9 @@
         </div>
       </div>
     </div>
-    <footer></footer>
+    <footer class="footer">
+      <p class="text">Movie List 2019</p>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="js/lib/bootstrap.min.js"></script>

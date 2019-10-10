@@ -1,5 +1,53 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.main {
+  min-height: 100%;
+  margin-bottom: -100px;
+  padding-bottom: 100px;
+}
+
+.footer {
+  background-color: #1C3475;
+  height: 100px;
+  padding: 20px;
+  text-align: center;
+}
+
+body {
+  background-color: #273F80;
+  color: #d4dfff;
+  position: relative;
+  padding-bottom: 100px;
+}
+
+a {
+  color: #8AA9FF;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+.btn-promo {
+  background-color: #ffc107;
+  color: #69550b;
+}
+
+.btn-casual {
+  background-color: #d4dfff;
+  color: #273F80;
+}
+
 .header {
   position: relative;
+  background-color: #1C3475;
+}
+
+.header__logo {
+  padding: 10px 0;
 }
 
 .header__search {
@@ -11,8 +59,12 @@
   max-width: 100%;
 }
 
+.movielist-info {
+  padding: 0 12px;
+}
+
 .sort-by {
-  padding: 20px 20px 0;
+  text-align: right;
 }
 
 .tile {
@@ -25,6 +77,22 @@
   margin-top: 10px;
 }
 
-.filters {
-  padding-top: 20px;
+.main {
+  padding-top: 24px;
+}
+
+.movie__title {
+  color: #ffffff;
+}
+
+.movie__content {
+  color: #d4dfff;
+}
+
+.movie__row-title {
+  color: #8AA9FF;
+}
+
+.movie__trailer-button {
+  margin-left: 20px;
 }
