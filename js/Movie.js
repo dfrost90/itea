@@ -50,17 +50,26 @@ function TvShow(options) {
 }
 
 Movie.prototype = {
+    add: function (key, value) {
+        this[key] = value;
+    },
+    edit: function (key, value) {
+        this[key] = value;
+    },
+    remove: function (key) {
+        delete this[key];
+    },
     getTitle: function () {
         return this.title;
     },
     setScore: function () {
-        console.log('set score function for ' + this.title);
+        return 'set score function for ' + this.title;
     },
     playVideo: function() {
-        console.log('play function for ' + this.title);
+        return 'play function for ' + this.title;
     },
     render: function () {
-        console.log('render function for ' + this.title);
+        return 'render function for ' + this.title;
     }
 }
 
@@ -72,32 +81,32 @@ TvShow.prototype.isOnAir = function () {
 }
 
 TvShow.prototype.playListOfEpisodes = function () {
-    console.log('play list of episodes');
+    return 'play list of episodes';
 }
 
 TvShow.prototype.setSeasonScore = function () {
-    console.log('rate season');
+    return 'rate season';
 }
 
 TvShow.prototype.render = function () {
-    console.log('render tvshow');
+    return 'render tvshow';
 }
 
-var movie1 = new Movie(movie1Options);
-var movie2 = new Movie(movie2Options);
+// var movie1 = new Movie(movie1Options);
+// var movie2 = new Movie(movie2Options);
 
-var tvshow1 = new TvShow(tvShow1Options);
+// var tvshow1 = new TvShow(tvShow1Options);
 
 // movie1.setScore();
 // movie1.playVideo();
 // movie1.render();
 
-console.log(tvshow1.getTitle());
+//console.log(tvshow1.getTitle());
 
-movie2.playVideo();
+// movie2.playVideo();
 
-tvshow1.playListOfEpisodes();
+// tvshow1.playListOfEpisodes();
 
-tvshow1.setScore();
+// tvshow1.setScore();
 
-console.log(tvshow1.isOnAir());
+//console.log(tvshow1.isOnAir());
