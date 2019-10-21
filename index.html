@@ -50,7 +50,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-8">
-                  <div class="movielist-info__row">Showing <span class="movielist-info__value">all</span> items</div>
+                  <div class="movielist-info__row">Showing <span class="movielist-info__value">1 item</span></div>
                 </div>
                 <div class="col-4">
                   <div class="sort-by dropdown">
@@ -69,88 +69,7 @@
             </div>
           </div>
           <div class="movielist-container container">
-            <!-- <div class="row">
-              <div class="col-6 col-md-3">
-                <div class="tile">
-                  <a data-name="abominalble dataname" href="/movie.html">
-                    <img class="img-thumbnail tile__image" src="images/movies/abominalble.jpg" alt="abominalble">
-                    <h5 class="tile__title">Abominalble</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="tile">
-                  <a href="/movie.html">
-                    <img class="img-thumbnail tile__image" src="images/movies/ad_astra.jpg" alt="ad_astra">
-                    <h5 class="tile__title">Ad astra</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="tile">
-                  <a href="/movie.html">
-                    <img class="img-thumbnail tile__image" src="images/movies/angel_has_fallen.jpg" alt="angel_has_fallen">
-                    <h5 class="tile__title">Angel has fallen</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="tile">
-                  <a href="/movie.html">
-                    <img class="img-thumbnail tile__image" src="images/movies/downton_abbey.jpg" alt="downton_abbey">
-                    <h5 class="tile__title">Downton abbey</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="tile">
-                  <a href="/movie.html">
-                    <img class="img-thumbnail tile__image" src="images/movies/el_camino.jpg" alt="el_camino">
-                    <h5 class="tile__title">El Camino</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="tile">
-                  <a href="/movie.html">
-                    <img class="img-thumbnail tile__image" src="images/movies/good_boys.jpg" alt="good_boys">
-                    <h5 class="tile__title">Good boys</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="tile">
-                  <a href="/movie.html">
-                    <img class="img-thumbnail tile__image" src="images/movies/it_2.jpg" alt="it_2">
-                    <h5 class="tile__title">It 2</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="tile">
-                  <a href="/movie.html">
-                    <img class="img-thumbnail tile__image" src="images/movies/joker.jpg" alt="joker">
-                    <h5 class="tile__title">Joker</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="tile">
-                  <a href="/movie.html">
-                    <img class="img-thumbnail tile__image" src="images/movies/last_blood.jpg" alt="last_blood">
-                    <h5 class="tile__title">Last blood</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="tile">
-                  <a href="/movie.html">
-                    <img class="img-thumbnail tile__image" src="images/movies/lion_king.jpg" alt="lion_king">
-                    <h5 class="tile__title">Lion king</h5>
-                  </a>
-                </div>
-              </div>
-            </div> -->
+            <!-- MovieList container -->
           </div>
         </div>
       </div>
@@ -173,6 +92,37 @@
 
       <p class="text">Movie List 2019</p>
     </footer>
+
+    <div class="overlay-wrapper hidden">
+      <div class="popup">
+        <div class="popup-content">
+          <div class="movie">
+            <div class="row">
+              <div class="col-12 col-md-3">
+                <div class="movie__img">
+                  <img src="images/movies/joker.jpg" class="img-thumbnail" alt="Joker">
+                </div>
+              </div>
+              <div class="col-12 col-md-9">
+                <div class="movie__content">
+                  <h1 class="movie__title">Joker</h1>
+                  <div class="movie__row"><span class="movie__row-title">Director: </span><span class="movie__row-text">Todd Phillips</span></div>
+                  <div class="movie__row"><span class="movie__row-title">Writers: </span><span class="movie__row-text">Todd Phillips, </span><span class="movie__row-text">Scott Silver</span></div>
+                  <div class="movie__row"><span class="movie__row-title">Stars: </span><span class="movie__row-text">Joaquin Phoenix, </span><span class="movie__row-text">Robert De Niro, </span><span class="movie__row-text">Zazie Beetz</span></div>
+                  <div class="movie__row"><span class="movie__row-title">Duration: </span><span class="movie__row-text">--</span></div>
+                  <div class="movie__row"><span class="movie__row-title">Rating: </span><span class="movie__row-text">R</span></div>
+                  <p class="movie__info mt-4 mb-4">Joker centers around an origin of the iconic arch nemesis and is an original, standalone story not seen before on the big screen. Todd Phillips' exploration of Arthur Fleck (Joaquin Phoenix), a man disregarded by society, is not only a gritty character study, but also a broader cautionary tale. Written by Warner Bros.</p>
+                  <button type="button" id="play-button" class="btn btn-promo btn-lg pl-4 pr-4"><span>Play</span></button>
+                  <a href="https://www.youtube.com/watch?v=t433PEQGErc" target="_blank" role="button" id="trailer-button" class="btn btn-casual btn-lg pl-4 pr-4 movie__trailer-button"><span>Watch trailer</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="popup-close" type="button"><span class="popup-close-text">Close</span></button>
+      </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="js/lib/bootstrap.min.js"></script>
@@ -180,10 +130,19 @@
     <!-- temp data -->
     <script src="js/data.js"></script>
 
-    <!-- <script src="js/main.js"></script> -->
-    <!-- <script src="js/Movie.js"></script> -->
-    <!-- <script src="js/MovieList.js"></script> -->
+    <script src="js/models/Movie.js"></script>
+    <script src="js/models/MovieList.js"></script>
+    <script src="js/models/TvShow.js"></script>
 
-    <script src="js/lessons/6/lesson6.js"></script>
+    <script src="js/views/PopupView.js"></script>
+
+    <script src="js/views/MovieTileView.js"></script>
+    <script src="js/views/MovieListView.js"></script>
+    <script src="js/views/MovieView.js"></script>
+    <script src="js/views/MovieEditView.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <!-- <script src="js/lessons/6/lesson6.js"></script> -->
 </body>
 </html>

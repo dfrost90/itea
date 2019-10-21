@@ -39,5 +39,5 @@
         }
     }
 
-    window.movie = Movie;
+    window.Movie = Movie;
 })()

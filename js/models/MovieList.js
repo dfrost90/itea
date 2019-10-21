@@ -39,5 +39,5 @@
         }
     }
 
-    window.movieList = MovieList; // "export"
+    window.MovieList = MovieList; // "export"
 })();

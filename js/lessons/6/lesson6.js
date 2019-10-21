@@ -29,8 +29,8 @@ form.addEventListener('submit', function(e) {
     e.preventDefault(); // убираем действие поумолчанию
 })
 
-
+////
 window.SomeFunction = function() {
-    
+
     return SomeFunction;
 };

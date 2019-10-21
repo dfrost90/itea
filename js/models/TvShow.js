@@ -1,6 +1,6 @@
 (function() {
     function TvShow(options) {
-        Movie.apply(this, arguments);
+        window.Movie.apply(this, arguments);
     
         if (options) {
             this.numberOfSeasons = options.numberOfSeasons || '1';
@@ -27,5 +27,5 @@
         return 'render tvshow';
     }
 
-    window.tvshow = TvShow;
+    window.TvShow = TvShow;
 })()

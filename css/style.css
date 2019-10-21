@@ -77,6 +77,15 @@ a:hover {
   padding-bottom: 20px;
 }
 
+.tile a {
+  color: #ffffff;
+  display: block;
+}
+
+.tile a:hover {
+  color: #8AA9FF;
+}
+
 .tile__title {
   margin-top: 10px;
 }
@@ -91,11 +100,11 @@ a:hover {
 }
 
 .movie__title {
-  color: #ffffff;
+  color: #273F80;
 }
 
 .movie__content {
-  color: #d4dfff;
+  color: #273F80;
 }
 
 .movie__row-title {
@@ -104,4 +113,76 @@ a:hover {
 
 .movie__trailer-button {
   margin-left: 20px;
+}
+
+.overlay-wrapper {
+  background: rgba(0, 0, 0, 0.67);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.popup {
+  background: #ffffff;
+  max-width: 100%;
+  padding: 20px;
+  width: 960px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popup-close {
+  background: none;
+  border: 0;
+  appearance: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  transition: transform .2s ease-in-out;
+}
+
+.popup-close:hover {
+  transform: rotateZ(90deg);
+}
+
+.popup-close::before,
+.popup-close::after {
+  content: '';
+  width: 16px;
+  height: 2px;
+  background: #aaaaaa;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: background .2s ease-in-out;
+}
+
+.popup-close::before {
+  transform: translate(-50%, -50%) rotateZ(-45deg);
+}
+
+.popup-close::after {
+  transform: translate(-50%, -50%) rotateZ(45deg);
+}
+
+.popup-close:hover::before,
+.popup-close:hover::after {
+  background: #273F80;
+}
+
+.popup-close-text {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
 }
