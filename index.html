@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header">
+    <header id="header" class="header">
       <div class="container-fluid">
         <div class="row">
           <div class="col-4">
@@ -68,11 +68,11 @@
               </div>
             </div>
           </div>
-          <div class="container">
-            <div class="row">
+          <div class="movielist-container container">
+            <!-- <div class="row">
               <div class="col-6 col-md-3">
                 <div class="tile">
-                  <a href="/movie.html">
+                  <a data-name="abominalble dataname" href="/movie.html">
                     <img class="img-thumbnail tile__image" src="images/movies/abominalble.jpg" alt="abominalble">
                     <h5 class="tile__title">Abominalble</h5>
                   </a>
@@ -102,8 +102,6 @@
                   </a>
                 </div>
               </div>
-            </div>
-            <div class="row">
               <div class="col-6 col-md-3">
                 <div class="tile">
                   <a href="/movie.html">
@@ -136,8 +134,6 @@
                   </a>
                 </div>
               </div>
-            </div>
-            <div class="row">
               <div class="col-6 col-md-3">
                 <div class="tile">
                   <a href="/movie.html">
@@ -154,19 +150,40 @@
                   </a>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
     <footer class="footer">
+
+      <button type="button" class="modal-box-open">Open Modal</button>
+
+      <div class="modal-box">
+        <p class="modal-box__text hidden">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque odio in temporibus minus aspernatur ducimus! Esse, nemo maxime eveniet culpa cumque quisquam quidem asperiores distinctio temporibus nesciunt, sint sapiente ad.
+        </p>
+        <button class="modal-box__close">Close Modal</button>
+      </div>
+
+      <form action="">
+        <input type="text" minlength="5" required>
+        <button type="submit">submit</button>
+      </form>
+
       <p class="text">Movie List 2019</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="js/lib/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/Movie.js"></script>
-    <script src="js/MovieList.js"></script>
+
+    <!-- temp data -->
+    <script src="js/data.js"></script>
+
+    <!-- <script src="js/main.js"></script> -->
+    <!-- <script src="js/Movie.js"></script> -->
+    <!-- <script src="js/MovieList.js"></script> -->
+
+    <script src="js/lessons/6/lesson6.js"></script>
 </body>
 </html>

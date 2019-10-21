@@ -31,6 +31,10 @@ a:hover {
   color: #ffffff;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .btn-promo {
   background-color: #ffc107;
   color: #69550b;
@@ -79,6 +83,11 @@ a:hover {
 
 .main {
   padding-top: 24px;
+}
+
+.movies-container {
+  list-style: none;
+  padding: 0;
 }
 
 .movie__title {
