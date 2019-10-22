@@ -25,17 +25,11 @@
         remove: function (key) {
             delete this[key];
         },
-        getTitle: function () {
-            return this.title;
-        },
         setScore: function () {
             return 'set score function for ' + this.title;
         },
         playVideo: function() {
             return 'play function for ' + this.title;
-        },
-        render: function () {
-            return 'render function for ' + this.title;
         }
     }
 
