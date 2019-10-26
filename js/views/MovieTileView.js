@@ -27,11 +27,9 @@
 
         // es6
         var tile = `
-            <div class="tile">
-                <a href="${movie.url}" data-popup-toggle="${movie.id}">
-                    <img class="img-thumbnail tile__image" src="${movie.image}" alt="${movie.title}">
-                    <h5 class="tile__title" data-test>${movie.title}</h5>
-                </a>
+            <div class="tile" data-modal-toggle="${movie.id}">
+                <img class="img-thumbnail tile__image" src="${movie.image}" alt="${movie.title}">
+                <h5 class="tile__title">${movie.title}</h5>
             </div>
         `;
 
