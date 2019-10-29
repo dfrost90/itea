@@ -1,4 +1,4 @@
-(function() {
+(function () {
     function MovieTileView(movie) {
         this.element = document.createElement('li');
         this.element.setAttribute('class', 'movies-container__item col-6 col-md-3');
@@ -27,16 +27,16 @@
 
         // es6
         var tile = `
-            <div class="tile" data-modal-toggle="${movie.id}">
-                <img class="img-thumbnail tile__image" src="${movie.image}" alt="${movie.title}">
-                <h5 class="tile__title">${movie.title}</h5>
+            <div class="tile" data-modal-toggle="${movie.ID}">
+                <img class="img-thumbnail tile__image" src="${movie.srcImage}" alt="${movie.Title}">
+                <h5 class="tile__title">${movie.Title}</h5>
             </div>
         `;
 
         this.element.insertAdjacentHTML('beforeend', tile);
     }
 
-    MovieTileView.prototype.getElement = function() {
+    MovieTileView.prototype.getElement = function () {
         return this.element;
     }
 

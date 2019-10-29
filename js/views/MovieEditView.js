@@ -1,16 +1,13 @@
-(function() {
+(function () {
     function MovieEditView(movie) {
         this.element = document.createElement('div');
         this.element.setAttribute('class', 'movie-edit');
-
-        // get available fields from data
-        // var movieProps = Object.keys(movie);
 
         var movieProps = movie ? Object.entries(movie) : ['title', 'originalTitle', 'rating', 'url', 'image', 'year', 'genre', 'director', 'country', 'cast', 'info'];
 
         var rowsHtml = '';
         this.title = movie ? 'Edit Movie' : 'New Movie';
-        this.id = movie ? movie.id : 'new';
+        this.id = movie ? movie.ID : 'new';
 
         movieProps.forEach(element => {
             if (element[0] === 'id' || element[0] === 'views') return;
@@ -49,11 +46,11 @@
         this.element.insertAdjacentHTML('beforeend', formHtml);
     }
 
-    MovieEditView.prototype.render = function() {
+    MovieEditView.prototype.render = function () {
         return this.element;
     }
 
-    MovieEditView.prototype.renderModal = function() {
+    MovieEditView.prototype.renderModal = function () {
         var modal = new window.ModalView(this.render(), this.title);
         modal.showModal();
     }

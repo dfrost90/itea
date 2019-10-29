@@ -1,9 +1,9 @@
-(function() {
+(function () {
     function MovieListView(movies) {
         this.movies = movies;
     }
     
-    MovieListView.prototype.render = function(container) {
+    MovieListView.prototype.render = function (container) {
         this.moviesContainer = document.createElement('ul');
         this.moviesContainer.setAttribute('class', 'movies-container row');
         this.counter = document.querySelector('.movielist-info__value');
@@ -28,7 +28,7 @@
 
         this.moviesContainer.insertAdjacentHTML('beforeend', addTile);
 
-        container.addEventListener('click', function(e) {
+        container.addEventListener('click', function (e) {
             if (e.target.closest('.add')) {
                 var newMovieModal = new window.MovieEditView();
                 newMovieModal.renderModal();

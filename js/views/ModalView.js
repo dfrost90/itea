@@ -1,4 +1,4 @@
-(function() {
+(function () {
     function ModalView(content, title) {
         this.content = content;
         this.title = title;
@@ -9,13 +9,13 @@
         this.closeButton = document.querySelector('.popup-close');
     }
 
-    ModalView.prototype.emptyModal = function() {
+    ModalView.prototype.emptyModal = function () {
         // empty title && content
         while (this.popupTitle.firstChild) this.popupTitle.removeChild(this.popupTitle.firstChild);
         while (this.popupBody.firstChild) this.popupBody.removeChild(this.popupBody.firstChild);
     }
 
-    ModalView.prototype.showModal = function(e) {
+    ModalView.prototype.showModal = function (e) {
         this.emptyModal();
 
         if (this.popupTitle && this.title) {
@@ -33,7 +33,7 @@
         // this.wrapper.addEventListener('click', this.hideModal.bind(this));
     }
 
-    ModalView.prototype.hideModal = function(e) {
+    ModalView.prototype.hideModal = function (e) {
         // click outside popup
         if (this.popup.contains(e.target) && e.target !== this.closeButton) {
             return;

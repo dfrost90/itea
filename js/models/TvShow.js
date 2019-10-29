@@ -1,4 +1,4 @@
-(function() {
+(function () {
     function TvShow(options) {
         window.Movie.apply(this, arguments);
     
