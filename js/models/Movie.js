@@ -1,6 +1,19 @@
 (function () {
     function Movie(options) {
-        this.options = options;
+        if (options) {
+            this.ID = options.ID;
+            this.Title = options.Title;
+            this.TitleAlt = options.TitleAlt;
+            this.rating = options.rating;
+            this.url = options.url;
+            this.srcImage = options.srcImage;
+            this.year = options.year;
+            this.genre = options.genre;
+            this.director = options.director;
+            this.country = options.country;
+            this.Actors = options.Actors;
+            this.info = options.info;
+        }
     }
 
     Movie.prototype = {

@@ -2,8 +2,15 @@
     function MovieListView(movies) {
         this.movies = movies;
     }
-    
+
+    MovieListView.prototype.clear = function (container) {
+        while (container.firstChild) container.removeChild(container.firstChild);
+    }
+
     MovieListView.prototype.render = function (container) {
+        var container = container || document.querySelector('.movielist-container');
+        this.clear(container);
+
         this.moviesContainer = document.createElement('ul');
         this.moviesContainer.setAttribute('class', 'movies-container row');
         this.counter = document.querySelector('.movielist-info__value');

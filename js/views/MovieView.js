@@ -4,7 +4,7 @@
         this.element = document.createElement('div');
         this.element.setAttribute('class', 'movie');
 
-        this.movie = movieList.getById(this.id).options;
+        this.movie = movieList.getById(this.id);
 
         var movieHtml = `
             <div class="row">
@@ -21,7 +21,7 @@
                         <div class="movie__row"><span class="movie__row-title">Rating: </span><span class="movie__row-text">${this.movie.rating}</span></div>
                         <p class="movie__info mt-4 mb-4">${this.movie.info}</p>
                         <button type="button" id="play-button" class="btn btn-promo btn-lg pl-4 pr-4 movie__trailer-button"><span>Watch trailer</span></button>
-                        <button type="button" id="edit-button" class="btn btn-casual btn-lg pl-4 pr-4 movie__edit-button"><span>Edit</span></a>
+                        <button type="button" id="edit-button" data-popup-close class="btn btn-casual btn-lg pl-4 pr-4 movie__edit-button"><span>Edit</span></a>
                     </div>
                 </div>
             </div>
@@ -38,9 +38,9 @@
         var modal = new window.ModalView(this.render());
         modal.showModal();
 
-        var edit = document.querySelector('#edit-button');
+        var editBtn = document.querySelector('#edit-button');
 
-        edit.addEventListener('click', function (e) {
+        editBtn.addEventListener('click', function (e) {
             e.preventDefault();
             
             var movie = new MovieEditView(this.movie);

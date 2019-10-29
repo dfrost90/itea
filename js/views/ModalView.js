@@ -33,9 +33,9 @@
         // this.wrapper.addEventListener('click', this.hideModal.bind(this));
     }
 
-    ModalView.prototype.hideModal = function (e) {
+    ModalView.prototype.hideModal = function (e, options) {
         // click outside popup
-        if (this.popup.contains(e.target) && e.target !== this.closeButton) {
+        if (options !== '-force' && this.popup.contains(e.target) && e.target !== this.closeButton) {
             return;
         }
 

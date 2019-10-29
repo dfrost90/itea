@@ -21,17 +21,20 @@
             return this.list.find(item => item.Title === title);
         },
         edit: function (id, newData) {
-            this.list[this.list.findIndex(item => item.options.ID == id)] = newData;
+            this.list[this.list.findIndex(item => item.ID == id)] = newData;
         },
         add: function (newData) {
             this.list.push(newData);
         },
-        getById: function (ID) {
-            return this.list.find(item => item.options.ID === ID);
-            // return this.list.find(item => console.log(item.options));
+        getById: function (id) {
+            return this.list.find(item => item.ID === id);
         },
-        deleteById: function (ID) {
-            this.list.splice(this.list.findIndex(item => item.options.ID === ID), 1);
+        deleteById: function (id) {
+            var message = confirm('Remove movie ' + id + ' from the list?');
+            if (message) {
+                this.list.splice(this.list.findIndex(item => item.ID === id), 1);
+                movieListData = this.list;
+            }
         },
         getAll: function () {
             return this.list;

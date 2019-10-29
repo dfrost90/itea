@@ -9,8 +9,10 @@
         this.title = movie ? 'Edit Movie' : 'New Movie';
         this.id = movie ? movie.ID : 'new';
 
+        this.modal = new window.ModalView(this.render(), this.title);
+
         movieProps.forEach(element => {
-            if (element[0] === 'id' || element[0] === 'views') return;
+            if (element[0] === 'ID' || element[0] === 'views') return;
 
             var placeholder = Array.isArray(element) ? 'Enter ' + element[0] : 'Enter ' + element;
             var key = Array.isArray(element) ? element[0] : element;
@@ -33,12 +35,20 @@
             rowsHtml += row;
         });
 
+        if (movie) {
+            rowsHtml += `
+                <div class="form-group edit-form-row text-center">
+                    <button id="delete-movie" class="btn btn-lg btn-danger" type="button">Delete</button>
+                </div>
+            `;
+        }
+
         var formHtml = `
             <form action="" method="" id="edit-form" class="edit-form">
                 ${rowsHtml}
                 <div class="edit-form-footer form-group edit-form-row text-center py-4">
-                    <button class="btn btn-lg btn-primary px-4" type="submit">Submit</button>
-                    <button class="btn btn-lg btn-secondary ml-4 px-4" type="button">Cancel</button>
+                    <button id="movie-edit-submit" class="btn btn-lg btn-primary px-4" type="submit">Submit</button>
+                    <button id="movie-edit-cancel" data-popup-close class="btn btn-lg btn-secondary ml-4 px-4" type="button">Cancel</button>
                 </div>
             </form>
         `;
@@ -46,13 +56,31 @@
         this.element.insertAdjacentHTML('beforeend', formHtml);
     }
 
+    MovieEditView.prototype.controls = function () {
+        var deleteBtn = document.querySelector('#delete-movie');
+        var cancelBtn = document.querySelector('#movie-edit-cancel');
+
+        deleteBtn.addEventListener('click', (e) => {
+            movieList.deleteById(this.id);
+
+            movieListView = new window.MovieListView(movieListData);
+            movieListView.render();
+
+            this.modal.hideModal(e, '-force');
+        });
+
+        cancelBtn.addEventListener('click', (e) => {
+            this.modal.hideModal(e, '-force');
+        });
+    }
+
     MovieEditView.prototype.render = function () {
         return this.element;
     }
 
     MovieEditView.prototype.renderModal = function () {
-        var modal = new window.ModalView(this.render(), this.title);
-        modal.showModal();
+        this.modal.showModal();
+        this.controls();
     }
 
     window.MovieEditView = MovieEditView;
