@@ -35,6 +35,15 @@ a:hover {
   display: none !important;
 }
 
+.no-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .btn-promo {
   background-color: #ffc107;
   color: #69550b;
@@ -106,6 +115,7 @@ a:hover {
   padding: 0;
 }
 
+.popup-title,
 .movie__title {
   color: #273F80;
 }
@@ -134,15 +144,30 @@ a:hover {
 
 .popup {
   background: #ffffff;
-  max-width: 100%;
+  max-width: 800px;
   max-height: 80vh;
-  padding: 20px;
-  width: 960px;
   position: absolute;
   top: 50%;
   left: 50%;
-  overflow-y: auto;
   transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.popup-header {
+  flex-shrink: 0;
+}
+
+.popup-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
 }
 
 .popup-close {
@@ -224,4 +249,25 @@ a:hover {
   width: 120px;
   height: 120px;
   line-height: 1;
+}
+
+.edit-form {
+  padding-bottom: 5rem;
+}
+
+.edit-form-row {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto 1.5rem;
+}
+
+.edit-form-footer {
+  background: rgba(255, 255, 255, 0.81);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin: 0;
+  width: 100%;
+  transform: translateX(-50%);
+  z-index: 1;
 }

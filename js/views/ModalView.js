@@ -1,21 +1,31 @@
 (function() {
-    function ModalView(content) {
+    function ModalView(content, title) {
         this.content = content;
+        this.title = title;
+        this.popupTitle = document.querySelector('.popup-title');
         this.wrapper = document.querySelector('.overlay-wrapper');
         this.popup = document.querySelector('.popup');
-        this.popupContent = document.querySelector('.popup-content');
+        this.popupBody = document.querySelector('.popup-body');
         this.closeButton = document.querySelector('.popup-close');
     }
 
     ModalView.prototype.emptyModal = function() {
-        // empty content
-        while (this.popupContent.firstChild) this.popupContent.removeChild(this.popupContent.firstChild);
+        // empty title && content
+        while (this.popupTitle.firstChild) this.popupTitle.removeChild(this.popupTitle.firstChild);
+        while (this.popupBody.firstChild) this.popupBody.removeChild(this.popupBody.firstChild);
     }
 
     ModalView.prototype.showModal = function(e) {
         this.emptyModal();
 
-        this.popupContent.append(this.content);
+        if (this.popupTitle && this.title) {
+            this.popupTitle.textContent = '';
+            this.popupTitle.insertAdjacentHTML('beforeend', this.title);
+        }
+
+        document.body.classList.add('no-scroll');
+
+        this.popupBody.append(this.content);
 
         this.wrapper.classList.remove('hidden');
 
@@ -29,8 +39,9 @@
             return;
         }
 
-        this.wrapper.classList.add('hidden');
+        document.body.classList.remove('no-scroll');
 
+        this.wrapper.classList.add('hidden');
         this.emptyModal();
 
         this.closeButton.removeEventListener('click', this.hideModal.bind(this));

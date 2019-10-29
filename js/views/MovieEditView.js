@@ -4,61 +4,42 @@
         this.element.setAttribute('class', 'movie-edit');
 
         // get available fields from data
-        var moviePropsNew = ['title', 'originalTitle', 'rating', 'url', 'image', 'year', 'genre', 'director', 'country', 'cast', 'info'];
+        // var movieProps = Object.keys(movie);
+
+        var movieProps = movie ? Object.entries(movie) : ['title', 'originalTitle', 'rating', 'url', 'image', 'year', 'genre', 'director', 'country', 'cast', 'info'];
 
         var rowsHtml = '';
-        var formTitle = '';
+        this.title = movie ? 'Edit Movie' : 'New Movie';
+        this.id = movie ? movie.id : 'new';
 
-        if (movie) {
-            var movieProps = Object.entries(movie);
-            formTitle = 'Edit Movie';
+        movieProps.forEach(element => {
+            if (element[0] === 'id' || element[0] === 'views') return;
 
-            movieProps.forEach(element => {
-                if (element[0] === 'id' || element[0] === 'views') return;
+            var placeholder = Array.isArray(element) ? 'Enter ' + element[0] : 'Enter ' + element;
+            var key = Array.isArray(element) ? element[0] : element;
+            var value = Array.isArray(element) ? element[1] : '';
 
-                var row = `
-                    <div class="form-group">
-                        <label for="movie-${element[0]}-${movie.id}" class="form-row-label">${element[0]}</label>
-                        <input id="movie-${element[0]}-${movie.id}" class="form-control"" type="text" value="${element[1]}" />
+            var row = `
+                <div class="form-group edit-form-row">
+                    <label for="movie-${key}-${this.id}" class="form-row-label">${key}</label>
+                    <input id="movie-${key}-${this.id}" class="form-control"" type="text" placeholder="${placeholder}" value="${value}" />
+                </div>
+            `;
+            if (element[0] === 'info') {
+                row = `
+                    <div class="form-group edit-form-row">
+                        <label for="movie-${key}-${this.id}" class="form-row-label">${key}</label>
+                        <textarea rows="4" id="movie-${key}-${this.id}" class="form-control">${value}</textarea>
                     </div>
                 `;
-                if (element[0] === 'info') {
-                    row = `
-                        <div class="form-group">
-                            <label for="movie-${element[0]}-${movie.id}" class="form-row-label">${element[0]}</label>
-                            <textarea id="movie-${element[0]}-${movie.id}" class="form-control">${element[1]}</textarea>
-                        </div>
-                    `;
-                }
-                rowsHtml += row;
-            });
-        } else {
-            formTitle = 'New Movie';
-
-            moviePropsNew.forEach(element => {
-                var row = `
-                    <div class="form-group">
-                        <label for="movie-${element}" class="form-row-label">${element}</label>
-                        <input id="movie-${element}" class="form-control"" type="text" placeholder="Enter ${element}"/>
-                    </div>
-                `;
-                if (element === 'info') {
-                    row = `
-                        <div class="form-group">
-                            <label for="movie-${element}" class="form-row-label">${element}</label>
-                            <textarea id="movie-${element}" class="form-control" placeholder="Enter ${element}"></textarea>
-                        </div>
-                    `;
-                }
-                rowsHtml += row;
-            });
-        }
+            }
+            rowsHtml += row;
+        });
 
         var formHtml = `
-            <h2 class="movie__title">${formTitle}</h2>
             <form action="" method="" id="edit-form" class="edit-form">
                 ${rowsHtml}
-                <div class="form-group text-center">
+                <div class="edit-form-footer form-group edit-form-row text-center py-4">
                     <button class="btn btn-lg btn-primary px-4" type="submit">Submit</button>
                     <button class="btn btn-lg btn-secondary ml-4 px-4" type="button">Cancel</button>
                 </div>
@@ -73,7 +54,7 @@
     }
 
     MovieEditView.prototype.renderModal = function() {
-        var modal = new window.ModalView(this.render());
+        var modal = new window.ModalView(this.render(), this.title);
         modal.showModal();
     }
 
