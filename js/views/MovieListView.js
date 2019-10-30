@@ -1,13 +1,15 @@
 (function () {
     function MovieListView() {
-        this.movies;
     }
 
     MovieListView.prototype.clear = function (container) {
         while (container.firstChild) container.removeChild(container.firstChild);
     }
 
-    MovieListView.prototype.render = function (container) {
+    MovieListView.prototype.render = function (data, container) {
+        this.movies = data.map(function (el) {
+            return new Movie(el);
+        });
         var container = container || document.querySelector('.movielist-container');
         this.clear(container);
 

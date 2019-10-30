@@ -1,3 +1,5 @@
-window.movieList.getAll();
 var movieListView = new window.MovieListView();
-movieListView.render(document.querySelector('.movielist-container'));
+window.movieList.getAll(function(data) {
+    movieListView.render(data, document.querySelector('.movielist-container'));
+    window.movieListData = data;
+});

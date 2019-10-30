@@ -4,10 +4,10 @@
 
     MovieList.prototype = {
         search: function (title) {
-            return this.list.find(item => item.Title === title);
+            return window.movieListData.find(item => item.Title === title);
         },
         edit: function (id, newData) {
-            this.list[this.list.findIndex(item => item.ID == id)] = newData;
+            window.movieListData[window.movieListData.findIndex(item => item.ID == id)] = newData;
         },
         add: function (data, onSuccess) {
             var xhr = new XMLHttpRequest();
@@ -20,13 +20,12 @@
             });
         },
         getById: function (id) {
-            return this.list.find(item => item.ID === id);
+            return window.movieListData.find(item => item.ID === id);
         },
         deleteById: function (id) {
             var message = confirm('Remove movie ' + id + ' from the list?');
             if (message) {
-                this.list.splice(this.list.findIndex(item => item.ID === id), 1);
-                movieListData = this.list;
+                window.movieListData.splice(window.movieListData.findIndex(item => item.ID === id), 1);
             }
         },
         getAll: function (onSuccess) {

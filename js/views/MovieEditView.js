@@ -63,8 +63,8 @@
         deleteBtn.addEventListener('click', (e) => {
             movieList.deleteById(this.id);
 
-            movieListView = new window.MovieListView(movieListData);
-            movieListView.render();
+            movieListView = new window.MovieListView();
+            movieListView.render(movieListData);
 
             this.modal.hideModal(e, '-force');
         });
