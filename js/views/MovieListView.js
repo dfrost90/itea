@@ -13,7 +13,7 @@
 
         this.moviesContainer = document.createElement('ul');
         this.moviesContainer.setAttribute('class', 'movies-container row');
-        this.counter = document.querySelector('.movielist-info__value');
+        this.counter = document.querySelector('.movielist-info__row');
 
         var addTile = `
             <li class="movies-container__item add col-6 col-md-3">
@@ -21,9 +21,12 @@
                 <div class="tile__title">Add Movie</div>
             </li>
         `;
-
+        
+        while (this.counter.firstChild) this.counter.removeChild(this.counter.firstChild);
         if (this.movies.length > 1) {
-            this.counter.textContent = this.movies.length + ' items';
+            this.counter.insertAdjacentHTML('beforeend', `Showing <span class="movielist-info__value">${this.movies.length} items</span>`);
+        } else {
+            this.counter.insertAdjacentHTML('beforeend', `Showing <span class="movielist-info__value">1 item</span>`);
         }
 
         this.movies.forEach(movie => {

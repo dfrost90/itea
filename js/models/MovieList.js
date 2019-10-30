@@ -1,19 +1,5 @@
 (function () {
     function MovieList() {
-        var data;
-        var xhr = new XMLHttpRequest();
-
-        xhr.open('GET', 'http://localhost:3000/films');
-
-        xhr.send();
-
-        xhr.addEventListener('load', () => {
-            data = JSON.parse(xhr.response).list;
-
-            this.list = data.map(function (el) {
-                return new Movie(el);
-            });
-        });
     }
 
     MovieList.prototype = {
@@ -23,8 +9,15 @@
         edit: function (id, newData) {
             this.list[this.list.findIndex(item => item.ID == id)] = newData;
         },
-        add: function (newData) {
-            this.list.push(newData);
+        add: function (data) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:3000/films');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(data));
+
+            xhr.addEventListener('load', function() {
+                onSuccess(JSON.parse(xhr.response).list);
+            });
         },
         getById: function (id) {
             return this.list.find(item => item.ID === id);
@@ -36,23 +29,17 @@
                 movieListData = this.list;
             }
         },
-        getAll: function () {
-            return this.list;
-        },
-        sortBy: function (sort) {
-            var sort = sort || 'year'; // default sorting
-    
-            return this.list.sort((a, b) => (a[sort] > b[sort]) ? 1 : -1);
-        },
-        filterBy: function (filter) {
-            return this.list.filter(item => item.genre === filter);
-        },
-        render: function () {
-            this.list.map(function (el) {
-                return this.list[i].Title + ', ';
+        getAll: function (onSuccess) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://localhost:3000/films');
+            // xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send();
+
+            xhr.addEventListener('load', function() {
+                onSuccess(JSON.parse(xhr.response).list);
             });
         }
     }
 
-    window.MovieList = MovieList; // "export"
+    window.movieList = new MovieList(); // "export"
 })();
