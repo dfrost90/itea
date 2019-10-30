@@ -1,6 +1,6 @@
 (function () {
-    function MovieListView(movies) {
-        this.movies = movies;
+    function MovieListView() {
+        this.movies;
     }
 
     MovieListView.prototype.clear = function (container) {

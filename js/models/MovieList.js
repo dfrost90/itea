@@ -9,7 +9,7 @@
         edit: function (id, newData) {
             this.list[this.list.findIndex(item => item.ID == id)] = newData;
         },
-        add: function (data) {
+        add: function (data, onSuccess) {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'http://localhost:3000/films');
             xhr.setRequestHeader('Content-Type', 'application/json');
