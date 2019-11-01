@@ -21,14 +21,14 @@
             var row = `
                 <div class="form-group edit-form-row">
                     <label for="movie-${key}-${this.id}" class="form-row-label">${key}</label>
-                    <input id="movie-${key}-${this.id}" class="form-control"" type="text" placeholder="${placeholder}" value="${value}" />
+                    <input id="movie-${key}-${this.id}" name="movie-${key}-${this.id}" class="form-control"" type="text" placeholder="${placeholder}" value="${value}" />
                 </div>
             `;
             if (element[0] === 'info') {
                 row = `
                     <div class="form-group edit-form-row">
                         <label for="movie-${key}-${this.id}" class="form-row-label">${key}</label>
-                        <textarea rows="4" id="movie-${key}-${this.id}" class="form-control">${value}</textarea>
+                        <textarea rows="4" id="movie-${key}-${this.id}" name="movie-${key}-${this.id}" class="form-control">${value}</textarea>
                     </div>
                 `;
             }
@@ -57,14 +57,33 @@
     }
 
     MovieEditView.prototype.controls = function () {
+        var submitBtn = document.querySelector('#movie-edit-submit');
         var deleteBtn = document.querySelector('#delete-movie');
         var cancelBtn = document.querySelector('#movie-edit-cancel');
+        var formElm = this.element.querySelector('#edit-form');
+
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            var formData = new FormData(formElm);
+            console.log(formData.entries());
+
+            if (movie) {
+                // window.movieList.edit(id, data);
+            } else {
+                // window.movieList.add(data);
+            }
+        });
 
         deleteBtn.addEventListener('click', (e) => {
-            movieList.deleteById(this.id);
+            var id = this.id;
 
-            movieListView = new window.MovieListView();
-            movieListView.render(movieListData);
+            window.movieList.deleteById(id);
+
+            window.movieList.getAll(function(data) {
+                movieListView.render(data, document.querySelector('.movielist-container'));
+                window.movieListData = data;
+            });
 
             this.modal.hideModal(e, '-force');
         });
