@@ -8,7 +8,6 @@
             return window.movieListData.find(item => item.Title === title);
         },
         edit: function (id, newData) {
-            // window.movieListData[window.movieListData.findIndex(item => item.ID == id)] = newData;
             var data = {
                 id: id,
                 options: newData
@@ -23,15 +22,14 @@
                 onSuccess(JSON.parse(xhr.response).list);
             });
         },
-        add: function (data, onSuccess) {
+        add: function (data) {
             var xhr = new XMLHttpRequest();
+            var data = {
+                movie: data
+            }
             xhr.open('POST', this.URL);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.send(JSON.stringify(data));
-
-            xhr.addEventListener('load', function() {
-                onSuccess(JSON.parse(xhr.response).list);
-            });
         },
         getById: function (id) {
             return window.movieListData.find(item => item.ID === id);
@@ -39,7 +37,6 @@
         deleteById: function (id) {
             var message = confirm('Remove movie ' + id + ' from the list?');
             if (message) {
-                // window.movieListData.splice(window.movieListData.findIndex(item => item.ID === id), 1);
                 var data = {
                     id: id
                 }

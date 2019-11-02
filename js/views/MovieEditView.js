@@ -3,7 +3,7 @@
         this.element = document.createElement('div');
         this.element.setAttribute('class', 'movie-edit');
 
-        var movieProps = movie ? Object.entries(movie) : ['title', 'originalTitle', 'rating', 'url', 'image', 'year', 'genre', 'director', 'country', 'cast', 'info'];
+        var movieProps = movie ? Object.entries(movie) : ['ID', 'Title', 'TitleAlt', 'Actors', 'Director', 'Country', 'Image', 'Info', 'Rating'];
 
         var rowsHtml = '';
         this.title = movie ? 'Edit Movie' : 'New Movie';
@@ -20,15 +20,15 @@
 
             var row = `
                 <div class="form-group edit-form-row">
-                    <label for="movie-${key}-${this.id}" class="form-row-label">${key}</label>
-                    <input id="movie-${key}-${this.id}" name="movie-${key}-${this.id}" class="form-control"" type="text" placeholder="${placeholder}" value="${value}" />
+                    <label for="${key}" class="form-row-label">${key}</label>
+                    <input id="${key}" name="${key}" class="form-control"" type="text" placeholder="${placeholder}" value="${value}" />
                 </div>
             `;
             if (element[0] === 'info') {
                 row = `
                     <div class="form-group edit-form-row">
-                        <label for="movie-${key}-${this.id}" class="form-row-label">${key}</label>
-                        <textarea rows="4" id="movie-${key}-${this.id}" name="movie-${key}-${this.id}" class="form-control">${value}</textarea>
+                        <label for="${key}" class="form-row-label">${key}</label>
+                        <textarea rows="4" id="${key}" name="${key}" class="form-control">${value}</textarea>
                     </div>
                 `;
             }
@@ -57,28 +57,27 @@
     }
 
     MovieEditView.prototype.controls = function () {
-        var submitBtn = document.querySelector('#movie-edit-submit');
-        var deleteBtn = document.querySelector('#delete-movie');
-        var cancelBtn = document.querySelector('#movie-edit-cancel');
-        var formElm = this.element.querySelector('#edit-form');
+        let submitBtn = document.querySelector('#movie-edit-submit');
+        let cancelBtn = document.querySelector('#movie-edit-cancel');
+        let form = this.element.querySelector('#edit-form');
+
+        const formToJSON = elements => [].reduce.call(elements, (data, element) => {
+            data[element.name] = element.value;
+            return data;
+        }, {});
 
         submitBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
-            var formData = new FormData(formElm);
-            console.log(formData.entries());
+            let formData = formToJSON(form.elements);
 
-            if (movie) {
-                // window.movieList.edit(id, data);
+            if (this.id === 'new') {
+                formData.ID = id.toString();
+                window.movieList.add(formData);
             } else {
-                // window.movieList.add(data);
+                let id = this.id;
+                window.movieList.edit(id, formData);
             }
-        });
-
-        deleteBtn.addEventListener('click', (e) => {
-            var id = this.id;
-
-            window.movieList.deleteById(id);
 
             window.movieList.getAll(function(data) {
                 movieListView.render(data, document.querySelector('.movielist-container'));
@@ -91,6 +90,22 @@
         cancelBtn.addEventListener('click', (e) => {
             this.modal.hideModal(e, '-force');
         });
+
+        if (this.id !== 'new') {
+            let deleteBtn = document.querySelector('#delete-movie');
+            deleteBtn.addEventListener('click', (e) => {
+                let id = this.id;
+    
+                window.movieList.deleteById(id);
+    
+                window.movieList.getAll(function(data) {
+                    movieListView.render(data, document.querySelector('.movielist-container'));
+                    window.movieListData = data;
+                });
+    
+                this.modal.hideModal(e, '-force');
+            });
+        }
     }
 
     MovieEditView.prototype.render = function () {

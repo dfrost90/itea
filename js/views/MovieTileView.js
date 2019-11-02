@@ -28,7 +28,7 @@
         // es6
         var tile = `
             <div class="tile" data-modal-toggle="${movie.ID}">
-                <img class="img-thumbnail tile__image" src="${movie.srcImage}" alt="${movie.Title}">
+                <img class="img-thumbnail tile__image" src="${movie.Image}" alt="${movie.Title}">
                 <h5 class="tile__title">${movie.Title}</h5>
             </div>
         `;

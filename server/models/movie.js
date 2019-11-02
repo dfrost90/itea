@@ -1,18 +1,27 @@
 //Вынисти в отдельный js файл
 function Movie (options){
-    this.ID = options.ID;
-    this.Title = options.Title;
-    this.Description = options.Synopsis;
-    this.RunTime = options.RunTime;
-    this.OpeningDate = options.OpeningDate;
-    this.TitleAlt = options.TitleAlt;
-    this.GenreId = options.GenreId;
-    this.Actors = options.Actors;
-    this.Genred = options.Genred;
-    this.RatingCount =  options.RatingCount;
-    this.srcImage = options.srcImage;
-    this.info = options.info;
-    this.rating = options.rating;
+    // this.ID = options.ID;
+    // this.Title = options.Title;
+    // this.Description = options.Synopsis;
+    // this.RunTime = options.RunTime;
+    // this.OpeningDate = options.OpeningDate;
+    // this.TitleAlt = options.TitleAlt;
+    // this.GenreId = options.GenreId;
+    // this.Actors = options.Actors;
+    // this.Genred = options.Genred;
+    // this.RatingCount =  options.RatingCount;
+    // this.srcImage = options.srcImage;
+    // this.info = options.info;
+    // this.rating = options.rating;
+    this.ID = options.ID
+    this.Title = options.Title
+    this.TitleAlt = options.TitleAlt
+    this.Actors = options.Actors
+    this.Image = options.Image
+    this.Info = options.Info
+    this.Rating = options.Rating
+    this.Director = options.Director;
+    this.Country = options.country;
 }
 
 function MovieList (){

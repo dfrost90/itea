@@ -10,16 +10,17 @@
             <div class="row">
                 <div class="col-12 col-md-3">
                     <div class="movie__img">
-                        <img src="${this.movie.srcImage}" class="img-thumbnail" alt="${this.movie.Title}">
+                        <img src="${this.movie.Image}" class="img-thumbnail" alt="${this.movie.Title}">
                     </div>
                 </div>
                 <div class="col-12 col-md-9">
                     <div class="movie__content">
                         <h1 class="movie__title">${this.movie.Title}</h1>
-                        <div class="movie__row"><span class="movie__row-title">Director: </span><span class="movie__row-text">${this.movie.director}</span></div>
+                        <div class="movie__row"><span class="movie__row-title">Director: </span><span class="movie__row-text">${this.movie.Director}</span></div>
                         <div class="movie__row"><span class="movie__row-title">Stars: </span><span class="movie__row-text">${this.movie.Actors}</span></div>
-                        <div class="movie__row"><span class="movie__row-title">Rating: </span><span class="movie__row-text">${this.movie.rating}</span></div>
-                        <p class="movie__info mt-4 mb-4">${this.movie.info}</p>
+                        <div class="movie__row"><span class="movie__row-title">Country: </span><span class="movie__row-text">${this.movie.Coutnry}</span></div>
+                        <div class="movie__row"><span class="movie__row-title">Rating: </span><span class="movie__row-text">${this.movie.Rating}</span></div>
+                        <p class="movie__info mt-4 mb-4">${this.movie.Info}</p>
                         <button type="button" id="play-button" class="btn btn-promo btn-lg pl-4 pr-4 movie__trailer-button"><span>Watch trailer</span></button>
                         <button type="button" id="edit-button" data-popup-close class="btn btn-casual btn-lg pl-4 pr-4 movie__edit-button"><span>Edit</span></a>
                     </div>
