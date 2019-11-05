@@ -10,6 +10,7 @@
         this.movies = data.map(function (el) {
             return new Movie(el);
         });
+
         var container = container || document.querySelector('.movielist-container');
         this.clear(container);
 
@@ -23,7 +24,7 @@
                 <div class="tile__title">Add Movie</div>
             </li>
         `;
-        
+
         while (this.counter.firstChild) this.counter.removeChild(this.counter.firstChild);
         if (this.movies.length > 1) {
             this.counter.insertAdjacentHTML('beforeend', `Showing <span class="movielist-info__value">${this.movies.length} items</span>`);

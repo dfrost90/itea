@@ -22,6 +22,8 @@ function Movie (options){
     this.Rating = options.Rating
     this.Director = options.Director;
     this.Country = options.country;
+    this.GenreId = options.GenreId;
+    this.Genred = options.Genred;
 }
 
 function MovieList (){

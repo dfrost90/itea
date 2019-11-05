@@ -1,6 +1,7 @@
 (function () {
     function MovieList() {
         this.URL = 'http://localhost:3000/films';
+        this.filterURL = 'http://localhost:3000/films/getByOptions';
     }
 
     MovieList.prototype = {
@@ -26,7 +27,8 @@
             var xhr = new XMLHttpRequest();
             var data = {
                 movie: data
-            }
+            };
+
             xhr.open('POST', this.URL);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.send(JSON.stringify(data));
@@ -37,10 +39,11 @@
         deleteById: function (id) {
             var message = confirm('Remove movie ' + id + ' from the list?');
             if (message) {
+                var xhr = new XMLHttpRequest();
                 var data = {
                     id: id
-                }
-                var xhr = new XMLHttpRequest();
+                };
+                
                 xhr.open('DELETE', this.URL);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(JSON.stringify(data));
@@ -54,6 +57,22 @@
 
             xhr.addEventListener('load', function() {
                 onSuccess(JSON.parse(xhr.response).list);
+            });
+        },
+        filter: function (data, onSuccess) {
+            var xhr = new XMLHttpRequest();
+            var data = {
+                options: {
+                    Genred: data
+                }
+            };
+
+            xhr.open('POST', this.filterURL);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(data));
+
+            xhr.addEventListener('load', function() {
+                onSuccess(JSON.parse(xhr.response));
             });
         }
     }
