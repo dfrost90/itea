@@ -3,7 +3,7 @@
         this.element = document.createElement('div');
         this.element.setAttribute('class', 'movie-edit');
 
-        var movieProps = movie ? Object.entries(movie) : ['ID', 'Title', 'TitleAlt', 'Actors', 'Director', 'Country', 'Image', 'Info', 'Rating'];
+        var movieProps = movie ? Object.entries(movie) : ['ID', 'Title', 'TitleAlt', 'Actors', 'Director', 'Country', 'Image', 'Info', 'Rating', 'Year'];
 
         var rowsHtml = '';
         this.title = movie ? 'Edit Movie' : 'New Movie';
@@ -12,7 +12,7 @@
         this.modal = new window.ModalView(this.render(), this.title);
 
         movieProps.forEach(element => {
-            if (element[0] === 'ID' || element[0] === 'views') return;
+            // if (element[0] === 'ID' || element[0] === 'views') return;
 
             var placeholder = Array.isArray(element) ? 'Enter ' + element[0] : 'Enter ' + element;
             var key = Array.isArray(element) ? element[0] : element;
@@ -24,11 +24,11 @@
                     <input id="${key}" name="${key}" class="form-control"" type="text" placeholder="${placeholder}" value="${value}" />
                 </div>
             `;
-            if (element[0] === 'info') {
+            if (element[0] === 'Info' || element === 'Info') {
                 row = `
                     <div class="form-group edit-form-row">
                         <label for="${key}" class="form-row-label">${key}</label>
-                        <textarea rows="4" id="${key}" name="${key}" class="form-control">${value}</textarea>
+                        <textarea rows="4" id="${key}" name="${key}" class="form-control" placeholder="${placeholder}">${value}</textarea>
                     </div>
                 `;
             }

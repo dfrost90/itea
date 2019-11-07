@@ -18,10 +18,6 @@
             xhr.open('PUT', this.URL);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.send(JSON.stringify(data));
-
-            xhr.addEventListener('load', function() {
-                onSuccess(JSON.parse(xhr.response).list);
-            });
         },
         add: function (data) {
             var xhr = new XMLHttpRequest();
@@ -74,6 +70,21 @@
             xhr.addEventListener('load', function() {
                 onSuccess(JSON.parse(xhr.response));
             });
+        },
+        sort: function (rule, order) {
+            var data = window.movieListData;
+
+            if (rule.toLowerCase() !== "title") {
+                data.sort((a, b) => a[rule] - b[rule]);
+            } else {
+                data.sort((a, b) => a[rule] < b[rule] ? -1 : 1);
+            }
+
+            if (order) {
+                data.reverse();
+            }
+
+            window.movieListData = data;
         }
     }
 
