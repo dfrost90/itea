@@ -5,8 +5,16 @@
     }
 
     MovieList.prototype = {
-        search: function (title) {
-            return window.movieListData.find(item => item.Title === title);
+        search: function (searchValue) {
+            var movies = window.movieListData;
+
+            movies = movies.filter(movie => {
+                if (movie.Title.toUpperCase().indexOf(searchValue) > -1) {
+                    return movie;
+                }
+            });
+
+            return movies;
         },
         edit: function (id, newData) {
             var data = {
