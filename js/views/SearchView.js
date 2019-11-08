@@ -6,24 +6,26 @@
     }
 
     SearchView.prototype.render = function () {
-        this.input.addEventListener('keyup', (e) => {
-            var searchValue = e.target.value;
+        function listRender(searchValue) {
             if(searchValue.length > 0) {
-                movieListView.render(movieList.search(searchValue.toUpperCase()));
+                window.movieListFiltered = movieList.search(searchValue.toUpperCase(), window.movieListData);
             } else {
-                movieListView.render(window.movieListData);
+                window.movieListFiltered = window.movieListData;
             }
+            filters.render(window.movieListFiltered);
+            movieListView.render(window.movieListFiltered);
+        }
+
+        this.input.addEventListener('keyup', (e) => {
+            listRender(e.target.value);
         });
         this.input.addEventListener('search', (e) => {
-            movieListView.render(window.movieListData);
+            window.movieListFiltered = window.movieListData;
+            filters.render(window.movieListFiltered);
+            movieListView.render(window.movieListFiltered);
         });
         this.button.addEventListener('click', (e) => {
-            var searchValue = e.target.closest('.input-group').querySelector('.search-input').value;
-            if(searchValue.length > 0) {
-                movieListView.render(movieList.search(searchValue.toUpperCase()));
-            } else {
-                movieListView.render(window.movieListData);
-            }
+            listRender(e.target.closest('.input-group').querySelector('.search-input').value);
         });
     }
 

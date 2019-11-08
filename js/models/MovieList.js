@@ -5,8 +5,8 @@
     }
 
     MovieList.prototype = {
-        search: function (searchValue) {
-            var movies = window.movieListData;
+        search: function (searchValue, data) {
+            var movies = data;
 
             movies = movies.filter(movie => {
                 if (movie.Title.toUpperCase().indexOf(searchValue) > -1) {

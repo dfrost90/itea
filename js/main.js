@@ -5,6 +5,7 @@ var search = new SearchView();
 
 window.movieList.getAll(function(data) {
     window.movieListData = data;
+    window.movieListFiltered = data;
     movieListView.render(data, document.querySelector('.movielist-container'));
     filters.render();
     sorting.render();
