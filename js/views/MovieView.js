@@ -19,8 +19,9 @@
                         <div class="movie__row"><span class="movie__row-title">Director: </span><span class="movie__row-text">${this.movie.Director}</span></div>
                         <div class="movie__row"><span class="movie__row-title">Stars: </span><span class="movie__row-text">${this.movie.Actors}</span></div>
                         <div class="movie__row"><span class="movie__row-title">Country: </span><span class="movie__row-text">${this.movie.Country}</span></div>
+                        <div class="movie__row"><span class="movie__row-title">Genre: </span><span class="movie__row-text">${this.movie.Genred}</span></div>
                         <div class="movie__row"><span class="movie__row-title">Rating: </span><span class="movie__row-text">${this.movie.Rating}</span></div>
-                        <div class="movie__row"><span class="movie__row-title">Rating: </span><span class="movie__row-text">${this.movie.Year}</span></div>
+                        <div class="movie__row"><span class="movie__row-title">Year: </span><span class="movie__row-text">${this.movie.Year}</span></div>
                         <p class="movie__info mt-4 mb-4">${this.movie.Info}</p>
                         <a href="${this.movie.TrailerLink}" target="_blank" role="button" id="play-button" class="btn btn-promo btn-lg pl-4 pr-4 movie__trailer-button"><span>Watch trailer</span></a>
                         <button type="button" id="edit-button" data-popup-close class="btn btn-casual btn-lg pl-4 pr-4 movie__edit-button"><span>Edit</span></a>

@@ -7,6 +7,7 @@
             this.Actors = options.Actors;
             this.Director = options.Director;
             this.Country = options.Country;
+            this.Genred = options.Genred;
             this.Image = options.Image;
             this.Info = options.Info;
             this.Rating = options.Rating;

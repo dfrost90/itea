@@ -3,7 +3,7 @@
         this.element = document.createElement('div');
         this.element.setAttribute('class', 'movie-edit');
 
-        var movieProps = movie ? Object.entries(movie) : ['ID', 'Title', 'TitleAlt', 'Actors', 'Director', 'Country', 'Image', 'Info', 'Rating', 'Year'];
+        var movieProps = movie ? Object.entries(movie) : ['ID', 'Title', 'TitleAlt', 'Actors', 'Director', 'Country', 'Genred', 'Image', 'Info', 'Rating', 'Year', 'TrailerLink'];
 
         var rowsHtml = '';
         this.title = movie ? 'Edit Movie' : 'New Movie';
@@ -72,7 +72,6 @@
             let formData = formToJSON(form.elements);
 
             if (this.id === 'new') {
-                formData.ID = id.toString();
                 window.movieList.add(formData);
             } else {
                 let id = this.id;
@@ -80,8 +79,10 @@
             }
 
             window.movieList.getAll(function(data) {
-                movieListView.render(data, document.querySelector('.movielist-container'));
                 window.movieListData = data;
+                window.movieListFiltered = data;
+                movieListView.render(data, document.querySelector('.movielist-container'));
+                filters.render();
             });
 
             this.modal.hideModal(e, '-force');
@@ -99,8 +100,10 @@
                 window.movieList.deleteById(id);
     
                 window.movieList.getAll(function(data) {
-                    movieListView.render(data, document.querySelector('.movielist-container'));
                     window.movieListData = data;
+                    window.movieListFiltered = data;
+                    movieListView.render(data, document.querySelector('.movielist-container'));
+                    filters.render();
                 });
     
                 this.modal.hideModal(e, '-force');
